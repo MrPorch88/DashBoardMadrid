@@ -92,10 +92,13 @@
                             </li>
                             <li class="dropdown" data-toggle="tab">
                                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Metro y Cercanias">directions_bus</i>
+                                    <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Lineas de Bus">directions_bus</i>
                                 </a>
-                                <ul id="dropdownEMTLineas" class="dropdown-menu">
-                                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                                <ul class="dropdown-menu">
+                                    <input type="text" placeholder="Buscar Linea..." id="myInput" onkeyup="filterFunction()">
+                                    <ul style="max-height: 300px; overflow:scroll; -webkit-overflow-scrolling: touch; overflow-x: hidden;" id="dropdownEMTLineas">
+
+                                    </ul>
                                 </ul>
                             </li>
                             <li role="presentation"  data-toggle="tooltip" data-placement="bottom" title="Limpiar Mapa">

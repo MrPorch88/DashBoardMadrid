@@ -76,7 +76,7 @@ function mostrarLineaEMT(linea, direccion){
     var i;
     var paradas;
     var gris = {
-        url: 'images/BiciMad/BicimadGris.png',
+        url: 'images/Bus/Bus.png',
         size: new google.maps.Size(20, 20)
     };
     if(direccion == 1){
@@ -94,7 +94,6 @@ function mostrarLineaEMT(linea, direccion){
         });
         var otrasLineas = paradas[i].otrasLineas;
         var strOtrasLineas = "";
-        console.log(otrasLineas)
         for(var j = 0; j < otrasLineas.length;j++){
             if(j != otrasLineas.length - 1){
                 strOtrasLineas += otrasLineas[j] + ", ";
@@ -111,8 +110,6 @@ function mostrarLineaEMT(linea, direccion){
         })(marker, i));
         pins.push(marker);
     }
-
-    console.log(paradas);
 }
 
 function mapa(){
