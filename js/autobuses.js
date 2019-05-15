@@ -71,7 +71,7 @@ function cargarLineasAutobuses(){
 function mostrarLineaEMT(linea, direccion){
     clearAll();
     idLinea = 'Linea_' + linea;
-    $("h2#tituloMap").html("Linea " + linea + " <small>" + todasParadasPorLinea[idLinea].nombre + " - " + direccion + "</small>");
+    
     var infowindow = new google.maps.InfoWindow();
     var i;
     var paradas;
@@ -81,8 +81,10 @@ function mostrarLineaEMT(linea, direccion){
     };
     if(direccion == 1){
         paradas = todasParadasPorLinea[idLinea].paradasIda;
+        $("h2#tituloMap").html("Linea " + linea + " <small>" + todasParadasPorLinea[idLinea].nombre + " - IDA</small>");
     } else {
         paradas = todasParadasPorLinea[idLinea].paradasVue;
+        $("h2#tituloMap").html("Linea " + linea + " <small>" + todasParadasPorLinea[idLinea].nombre + " - VUELTA</small>");
     }
 
     for (i = 0; i < paradas.length; i++) {  
@@ -92,19 +94,10 @@ function mostrarLineaEMT(linea, direccion){
             animation: google.maps.Animation.DROP,
             icon: gris
         });
-        var otrasLineas = paradas[i].otrasLineas;
-        var strOtrasLineas = "";
-        for(var j = 0; j < otrasLineas.length;j++){
-            if(j != otrasLineas.length - 1){
-                strOtrasLineas += otrasLineas[j] + ", ";
-            }else{
-                strOtrasLineas += otrasLineas[j];
-            }
-        }
         // Mostramos en evento de 'click' el nombre de la parada. Se podria usar el campo direccion si lo preferimos
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {//barra n para diferentes lineas 
-          infowindow.setContent("<h5>" + paradas[i].nombre + "</h5></br>Otras Lineas </br>" + strOtrasLineas);
+          infowindow.setContent("<h5>" + paradas[i].nombre + "</h5></br>Otras Lineas </br>" + paradas[i].otrasLineas);
           infowindow.open(map, marker);
         }
         })(marker, i));
