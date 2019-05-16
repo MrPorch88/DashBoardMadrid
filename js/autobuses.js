@@ -48,7 +48,7 @@ function initMap() {
 
 function filterFunction() {
     var input, filter, ul, li, a, i;
-    input = document.getElementById("myInput");
+    input = document.getElementById("miInput");
     filter = input.value.toUpperCase();
     div = document.getElementById("dropdownEMTLineas");
     a = div.getElementsByTagName("a");
@@ -63,8 +63,8 @@ function filterFunction() {
 }
 function cargarLineasAutobuses(){
     for(var i = 0; i < lineasEMTLista.length; i++){
-        $("#dropdownEMTLineas").append('<a role="button" onClick="mostrarLineaEMT(' + lineasEMTLista[i].lineaId + ', 1)" class="waves-effect waves-block">' + lineasEMTLista[i].lineaId + ' - ' + lineasEMTLista[i].nombre + ' [IDA]</a>');
-        $("#dropdownEMTLineas").append('<a role="button" onClick="mostrarLineaEMT(' + lineasEMTLista[i].lineaId + ', 2)" class="waves-effect waves-block">' + lineasEMTLista[i].lineaId + ' - ' + lineasEMTLista[i].nombre + ' [VUELTA]</a>');
+        $("#dropdownEMTLineas").append('<a class="waves-effect waves-block"><button  style="text-decoration:none;" onClick="mostrarLineaEMT(' + lineasEMTLista[i].lineaId + ', 1)" class="boton2">' + lineasEMTLista[i].lineaId + ' - ' + lineasEMTLista[i].nombre + ' [IDA]</button></a>');
+        $("#dropdownEMTLineas").append('<a class="waves-effect waves-block"><button  style="text-decoration:none;" onClick="mostrarLineaEMT(' + lineasEMTLista[i].lineaId + ', 2)" class="boton2">' + lineasEMTLista[i].lineaId + ' - ' + lineasEMTLista[i].nombre + ' [VUELTA]</button></a>');
     }
 }
 
