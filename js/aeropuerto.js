@@ -26,7 +26,7 @@ llegada.onload = function () {
     obtenerDatosLl(contenid);
 }
 
-var despegue = 'images/despegue.png';
+//var despegue = 'images/despegue.png';
 
 function obtenerDatosLl(contentLl){
     
@@ -39,40 +39,35 @@ function obtenerDatosLl(contentLl){
         var ltd2= '<td><img src="images/Aeropuertos/LOGOS/' + contentLl[i].carrier + '.png"></img></td>';
         var ltd3= '<td>' + contentLl[i].airportDeparture + '</td>';
         var ltd4;
-        if(contentLl[i].status == 'A'){
-            ltd4= '<td>Activo</td>';
-        }
-        
-        if(contentLl[i].status == 'C'){
-            ltd4= '<td>Cancelado</td>';
-        }
-        
-        if(contentLl[i].status == 'D'){
-            ltd4= '<td>Diverted</td>';
-        }
-        
-        if(contentLl[i].status == 'DN'){
-            ltd4= '<td>Necesario Origen Datos</td>';
-        }
-        
-        if(contentLl[i].status == 'L'){
-            ltd4= '<td>Aterrizado</td>';
-        }
-        
-        if(contentLl[i].status == 'NO'){
-            ltd4= '<td>Not Operativo</td>';
-        }
-        
-        if(contentLl[i].status == 'R'){
-            ltd4= '<td>Redirigido</td>';
-        }
-        
-        if(contentLl[i].status == 'S'){
-            ltd4= '<td>En Hora</td>';
-        }
-        
-        if(contentLl[i].status == 'U'){
-            ltd4= '<td>Desconocida</td>';
+        var valLl = contentLl[i].status
+        switch(valLl){
+            case 'A':
+                ltd4= '<td>Activo</td>';
+                break;
+            case 'C':
+                ltd4= '<td>Cancelado</td>';
+                break;
+            case 'D':
+                ltd4= '<td>Desviado</td>';
+                break;
+            case 'DN':
+                ltd4= '<td>Necesario Origen Datos</td>';
+                break;
+            case 'L':
+                ltd4= '<td>Aterrizado</td>';
+                break;
+            case 'NO':
+                ltd4= '<td>Not Operativo</td>';
+                break;
+            case 'R':
+                ltd4= '<td>Redirigido</td>';
+                break;
+            case 'S':
+                ltd4= '<td>En Hora</td>';
+                break;
+            case 'U':
+                ltd4= '<td>Desconocida</td>';
+                break;
         }
 
         //Definimos el formato de la hora, para que sea mas amigable
@@ -101,76 +96,71 @@ function obtenerDatosLl(contentLl){
     }
 }
     
-function obtenerDatosS(content){
+function obtenerDatosS(contentS){
     
     // Recorremos los contenidos del JSON
-    for (var i = 0; i < content.length; i++) {
+    for (var i = 0; i < contentS.length; i++) {
         
         var tr="<tr>";
 
-        var td1= '<td><h5>' + content[i].flightNumber+ '</h5></td>';
-        var td2= '<td><img src="images/Aeropuertos/LOGOS/' + content[i].carrier + '.png"></img></td>';
-        var td3= '<td>' + content[i].airportArrival + '</td>';
-        
-        if(content[i].status == 'A'){
-            var td4= '<td>Activo</td>';
-        }
-        
-        if(content[i].status == 'C'){
-            var td4= '<td>Cancelado</td>';
-        }
-        
-        if(content[i].status == 'D'){
-            var td4= '<td>Desviado</td>';
-        }
-        
-        if(content[i].status == 'DN'){
-            var td4= '<td>Necesario Origen Datos</td>';
-        }
-        
-        if(content[i].status == 'L'){
-            var td4= '<td>Aterrizado</td>';
-        }
-        
-        if(content[i].status == 'NO'){
-            var td4= '<td>No Operativo</td>';
-        }
-        
-        if(content[i].status == 'R'){
-            var td4= '<td>Redirigido</td>';
-        }
-        
-        if(content[i].status == 'S'){
-            var td4= '<td>En Hora</td>';
-        }
-        
-        if(content[i].status == 'U'){
-            var td4= '<td>Desconocido</td>';
+        var std1= '<td><h5>' + contentS[i].flightNumber+ '</h5></td>';
+        var std2= '<td><img src="images/Aeropuertos/LOGOS/' + contentS[i].carrier + '.png"></img></td>';
+        var std3= '<td>' + contentS[i].airportArrival + '</td>';
+        var std4;
+        var valS = contentS[i].status
+        switch(valS){
+            case 'A':
+                std4= '<td>Activo</td>';
+                break;
+            case 'C':
+                std4= '<td>Cancelado</td>';
+                break;
+            case 'D':
+                std4= '<td>Desviado</td>';
+                break;
+            case 'DN':
+                std4= '<td>Necesario Origen Datos</td>';
+                break;
+            case 'L':
+                std4= '<td>Aterrizado</td>';
+                break;
+            case 'NO':
+                std4= '<td>Not Operativo</td>';
+                break;
+            case 'R':
+                std4= '<td>Redirigido</td>';
+                break;
+            case 'S':
+                std4= '<td>En Hora</td>';
+                break;
+            case 'U':
+                std4= '<td>Desconocida</td>';
+                break;
         }
         
         //Definimos el formato de la hora, para que sea mas amigable
         var conten = "";
-        for(var j = 0; j < content[i].publishedDep.length; j++){
+        for(var j = 0; j < contentS[i].publishedDep.length; j++){
             if(j > 10 && j < 19){
-                conten += content[i].publishedDep[j];
+                conten += contentS[i].publishedDep[j];
             }
         }
         
-        var td5= '<td>' + conten + '</td>';
+        var std5= '<td>' + conten + '</td>';
         
         conten = "";
-        for(var j = 0; j < content[i].publishedDep.length; j++){
+        for(var j = 0; j < contentS[i].publishedDep.length; j++){
             if(j > 10 && j < 19){
-                conten += content[i].publishedArr[j];
+                conten += contentS[i].publishedArr[j];
             }
         }
         
-        var td6= '<td>' + conten + '</td>';
-        var td7= '<td>' + content[i].terminalDep + '</td>';
+        var std6= '<td>' + conten + '</td>';
+        var std7= '<td>' + contentS[i].terminalDep + '</td>';
         
         //añadimos a la tabla todo lo que hemos generado en esta fila y pasamos a la siguiente.
         
-        $("#datosSalidas").append(tr+td1+td2+td3+td4+td5+td6+td7+'</tr>');
+        $("#datosSalidas").append(tr+std1+std2+std3+std4+std5+std6+std7+'</tr>');
 
     }
 }
