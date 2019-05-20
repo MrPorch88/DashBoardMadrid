@@ -79,31 +79,33 @@
                             <button onclick="abrirDrop()" class="dropbtn"><img src= "images/euro.png" height="80" width="80"></button>
                             <div id="myDropdown" class="dropdown-content_"> <!-- estas son las opciones del desplegable, a añadir teniendo en cuenta las referencias de la API-->
                         
-                                <a >
+                                <a>
                                     <button onclick="useThis('USD','$')" class="boton"> USD </button>
                                 </a>
-                                <a >
+                                <a>
                                     <button onclick="useThis('CHF','Fr')" class="boton"> CHF </button>
                                 </a>
-                                <a >
+                                <a>
                                     <button onclick="useThis('GBP', '£')" class="boton"> GBP </button>
                                 </a>
-                                <a >
+                                <a>
                                     <button onclick="useThis('JPY', '¥')" class="boton"> JPY </button>
                                 </a>
-                                <a >
+                                <a>
                                     <button onclick="useThis('CAD', '$')" class="boton"> CAD </button>
                                 </a>
                             </div>
                         </div>
                         
                         <div class="content"> <!-- Esto es el contenido del widget, la entrada de la cantidad y la salida de la transformacion -->
-                            <div class="text"><font size="4">
-                                <form class="formi">
-                                    <input class="butin" type="number" min="0" id="userInput" placeholder="" oninput="setCantidad()"/>
-                                </form>
-                                <p id="finalCurr"><!-- aqui va el parrafo generado por el js, invocado al seleccionar divisa --></p>
-                            </font></div>
+                            <div class="text">
+                                <font size="4">
+                                    <form class="formi">
+                                        <input class="butin" type="number" min="0" id="userInput" placeholder="" oninput="setCantidad()"/>
+                                    </form>
+                                    <p id="finalCurr"><!-- aqui va el parrafo generado por el js, invocado al seleccionar divisa --></p>
+                                </font>
+                            </div>
                         </div>
                     </div>
                      
@@ -138,16 +140,11 @@
                     <div class="card" >
                         <div class="header bg-pink">
                             <h2 id="tituloAer">Aeropuerto Adolfo Suarez - Salidas</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
+                            <ul class="header-dropdown">
+                                <li>
+                                    <a role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">open_with</i>
                                     </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Refrescar</a></li>
-                                        <li><a href="javascript:void(0);">Ocultar</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -155,12 +152,12 @@
                             <ul class="nav nav-tabs tab-nav-right" role="tablist">
                                 <li onClick="cambiarTituloA('Salidas')" role="presentation" class="active">
                                     <a href="#salidas" data-toggle="tab" aria-expanded="true">
-                                        <img src="images/despegue.png"/>
+                                        <i class="material-icons">flight_takeoff</i>
                                     </a>
                                 </li>
                                 <li onClick="cambiarTituloA('Llegadas')" role="presentation">
                                     <a href="#llegadas" data-toggle="tab">
-                                        <img src="images/aterrizaje.png"/>
+                                        <i class="material-icons">flight_land</i>
                                     </a>
                                 </li>
                             </ul>
@@ -230,16 +227,11 @@
                     <div class="card">
                         <div class="header">
                             <h2>Metro de Madrid</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
+                            <ul class="header-dropdown">
+                                <li>
+                                    <a role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">open_with</i>
                                     </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Refrescar</a></li>
-                                        <li><a href="javascript:void(0);">Ocultar</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -294,15 +286,10 @@
                                 </li>
                             </ul>
                             <ul class="header-dropdown">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
+                                <li>
+                                    <a role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">open_with</i>
                                     </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Refrescar</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Ocultar</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-                                    </ul>
                                 </li>
                             </ul>
                         </div>
