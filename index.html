@@ -256,49 +256,60 @@
                 </div>
         
                 <!-- #END# Task Info -->
-                <!-- START API TRAFICO -->
-                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                    <div class="card">
-                        <div class="header">
-                            <h2 id="tituloMap">
-                               Mapa <small>Mapa actualizado de Madrid</small>
-                            </h2>
-                            <ul class="nav nav-tabs tab-nav-right" role="tablist">
-                                <li role="presentation" class="active" data-toggle="tooltip" data-placement="bottom" title="Trafico">
-                                    <a onClick="trafico()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="true">
-                                        <i class="material-icons">traffic</i>
-                                    </a>
-                                </li>
-                                <li role="presentation" class="" data-toggle="tooltip" data-placement="bottom" title="BiciMad">
-                                    <a onClick="biciMad()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="false">
-                                        <i class="material-icons">directions_bike</i>
-                                    </a>
-                                </li>
-                                <li role="presentation" class="" data-toggle="tooltip" data-placement="bottom" title="Metro y Cercanias">
-                                    <a onClick="metro()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="false">
-                                        <i class="material-icons">subway</i>
-                                    </a>
-                                </li>
-                                <li role="presentation"  data-toggle="tooltip" data-placement="bottom" title="Limpiar Mapa">
-                                    <a onClick="clearAll()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="false">
-                                        <i class="material-icons">clear</i>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="header-dropdown">
-                                <li>
-                                    <a role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">open_with</i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div id="map"></div><!-- Script de Google Maps que define parametros para dejar un mapa liso-->
-                        </div>
+                <!-- START API MAPS -->
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <div class="card">
+                    <div class="header">
+                        <h2 id="tituloMap">
+                           Mapa <small>Mapa actualizado de Madrid</small>
+                        </h2>
+                        <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                            <li role="presentation" class="active" data-toggle="tooltip" data-placement="bottom" title="Trafico">
+                                <a onClick="trafico()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="true">
+                                    <i class="material-icons">traffic</i>
+                                </a>
+                            </li>
+                            <li role="presentation" class="" data-toggle="tooltip" data-placement="bottom" title="BiciMad">
+                                <a onClick="biciMad()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="false">
+                                    <i class="material-icons">directions_bike</i>
+                                </a>
+                            </li>
+                            <li role="presentation" class="" data-toggle="tooltip" data-placement="bottom" title="Metro y Cercanias">
+                                <a onClick="metro()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="false">
+                                    <i class="material-icons">subway</i>
+                                </a>
+                            </li>
+                            <li class="dropdown" data-toggle="tab">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="">directions_bus</i>
+                                </a>
+                                <ul class="dropdown-menu" style="margin-left: -80px;">
+                                    <input type="text" placeholder="Buscar Linea..." id="miInput" onkeyup="filterFunction()" />
+                                    <ul style="max-height: 300px; overflow:scroll; -webkit-overflow-scrolling: touch; overflow-x: hidden; padding-left: 0px; width: 20em;" id="dropdownEMTLineas">
+
+                                    </ul>
+                                </ul>
+                            </li>
+                            <li role="presentation"  data-toggle="tooltip" data-placement="bottom" title="Limpiar Mapa">
+                                <a onClick="clearAll()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="false">
+                                    <i class="material-icons">clear</i>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="header-dropdown">
+                            <li>
+                                <a role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">open_with</i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div id="map"></div><!-- Script de Google Maps que define parametros para dejar un mapa liso-->
                     </div>
                 </div>
-                <!-- END API TRAFICO-->
+            </div>
+            <!-- END API MAPS-->
             </div>
         </div>
     </section>
@@ -311,7 +322,7 @@
     <script src="js/metro.js"></script>
     
     <!-- Invocacion Script BiciMad -->
-    <script src="js/biciMad.js"></script>
+    <script src="js/mapas.js"></script>
     
     <script src = "js/dropdown.js"></script>
     <script src="js/monedamulti.js"></script>
