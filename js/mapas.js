@@ -72,6 +72,10 @@ function mostrarLineaEMT(linea, direccion){
     clearAll();
     idLinea = 'Linea_' + linea;
     
+    map.setCenter({lat: 40.429786, lng: -3.703790});
+    map.setZoom(12);
+
+
     var infowindow = new google.maps.InfoWindow();
     var i;
     var paradas;
@@ -109,7 +113,7 @@ function mapa(){
     var optionMap = {
         mapTypeControl: false,
         streetViewControl: false,
-        zoom: 13,
+        zoom: 12,
         center: {lat: 40.429786, lng: -3.703790},
     };
     
@@ -122,6 +126,25 @@ function mapa(){
 function biciMad(){
     clearAll();
     $("h2#tituloMap").html("BiciMad <small>Localización y estado de las estaciones de BiciMad</small>");
+    
+    // Comprobamos la GeoLocalizacion
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            // Exito
+            setLocaliz, 
+            // Error
+            null, 
+            
+            {
+               enableHighAccuracy: true,
+               timeout: 5000,
+               maximumAge: 0
+            });
+    } else { 
+        x.innerHTML = "No se soporta la geolocalizacion.";
+    }
+    
+
     var infowindow = new google.maps.InfoWindow();
     var i;
     var verde = {
@@ -183,16 +206,34 @@ function biciMad(){
         pins.push(marker);
     }
 }
+
+
+function setLocaliz(position) {
+    map.setCenter({lat: position.coords.latitude, lng: position.coords.longitude});
+    var posGeo = new google.maps.Marker({
+        position: {lat: position.coords.latitude, lng: position.coords.longitude}, 
+        map: map,
+        animation: google.maps.Animation.DROP,
+      }); 
+    pins.push(posGeo);
+    map.setZoom(14);
+}
+
+
     
 function trafico() {
     clearAll();
     $("h2#tituloMap").html("Tráfico <small>Situacion del trafico en Madrid y alrededores</small>");
     trafficLayer.setMap(map);
+    map.setCenter({lat: 40.429786, lng: -3.703790});
+    map.setZoom(12);
 }
 function metro() {
     clearAll();
     $("h2#tituloMap").html("Metro y Cercanías <small>Líneas y estaciones de Metro y Cercanías de Madrid</small>");
     metroLayer.setMap(map);
+    map.setCenter({lat: 40.429786, lng: -3.703790});
+    map.setZoom(12);
 }
 function clearAll(){
     $("h2#tituloMap").html("Mapa <small>Mapa actualizado de Madrid</small>");

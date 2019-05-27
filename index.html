@@ -56,21 +56,15 @@
     <!-- #END# Overlay For Sidebars -->
 
     <!-- Top Bar -->
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand">DASHBOARD MADRID</a>
-            </div>
-        </div>
-    </nav>
+    <a ><img src="images/madrid-ciudad.png" id="logo"></img></a>
+         <!--
+    <nav class="hidden-xs hidden-sm">
+        <a><img src="images/madrid-ciudad1.png" id="logo"/></a>
+    </nav>-->
     <!-- #Top Bar -->
 
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-                <h2>DASHBOARD</h2>
-            </div>
-            
             <!-- Widgets - Utilidades sencillas mostradas en formato mas restrictivo -->
             <div class="row clearfix">
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -133,7 +127,112 @@
                 
             </div>
             <!-- #END# Widgets -->
-            
+
+            <div class="row clearfix">
+                <!-- Task Info -->
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Metro de Madrid</h2>
+                            <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                                <li role="presentation" class="active"><a href="#metro1" data-toggle="tab">1</a></li>
+                                <li role="presentation"><a href="#metro2" data-toggle="tab">2</a></li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade in active" id="metro1">
+                                    
+                                <div class="table-responsive">
+                                    <table class="table table-hover dashboard-task-infos">
+                                        <thead>
+                                            <tr>
+                                                <th>Linea</th>
+                                                <th>Estado Circulación</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id = "datosTabla1"> <!-- Llamada al JS con la informacion del metro-->
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="metro2">
+                                <div class="table-responsive">
+                                    <table class="table table-hover dashboard-task-infos">
+                                            <thead>
+                                                <tr>
+                                                    <th>Linea</th>
+                                                    <th>Estado Circulación</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id = "datosTabla2"> <!-- Llamada al JS con la informacion del metro-->
+        
+                                            </tbody>
+                                        </table>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- #END# Task Info -->
+                <!-- START API MAPS -->
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                    <div class="card">
+                        <div class="header">
+                            <h2 id="tituloMap">
+                            Mapa <small>Mapa actualizado de Madrid</small>
+                            </h2>
+                            <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                                <li role="presentation" class="active" data-toggle="tooltip" data-placement="bottom" title="Trafico">
+                                    <a onClick="trafico()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="true">
+                                        <i class="material-icons">traffic</i>
+                                    </a>
+                                </li>
+                                <li role="presentation" class="" data-toggle="tooltip" data-placement="bottom" title="BiciMad">
+                                    <a onClick="biciMad()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="false">
+                                        <i class="material-icons">directions_bike</i>
+                                    </a>
+                                </li>
+                                <li role="presentation" class="" data-toggle="tooltip" data-placement="bottom" title="Metro y Cercanias">
+                                    <a onClick="metro()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="false">
+                                        <i class="material-icons">subway</i>
+                                    </a>
+                                </li>
+                                <li class="dropdown" data-toggle="tab">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="">directions_bus</i>
+                                    </a>
+                                    <ul class="dropdown-menu" style="margin-left: -80px;">
+                                        <input type="text" placeholder="Buscar Linea..." id="miInput" onkeyup="filterFunction()" />
+                                        <ul style="max-height: 300px; overflow:scroll; -webkit-overflow-scrolling: touch; overflow-x: hidden; padding-left: 0px; width: 20em;" id="dropdownEMTLineas">
+
+                                        </ul>
+                                    </ul>
+                                </li>
+                                <li role="presentation"  data-toggle="tooltip" data-placement="bottom" title="Limpiar Mapa">
+                                    <a onClick="clearAll()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="false">
+                                        <i class="material-icons">clear</i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="header-dropdown">
+                                <li>
+                                    <a role="button" aria-haspopup="true" aria-expanded="false">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div id="map"></div><!-- Script de Google Maps que define parametros para dejar un mapa liso-->
+                        </div>
+                    </div>
+                </div>
+            <!-- END API MAPS-->
+            </div>
+
             <div class="row clearfix">
                 <!-- AEROPUERTO -->
                 <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
@@ -143,13 +242,12 @@
                             <ul class="header-dropdown">
                                 <li>
                                     <a role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">open_with</i>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         <div class="body">
-                            <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                            <ul class="nav nav-tabs tab-nav-right tab-col-pink" role="tablist">
                                 <li onClick="cambiarTituloA('Salidas')" role="presentation" class="active">
                                     <a href="#salidas" data-toggle="tab" aria-expanded="true">
                                         <i class="material-icons">flight_takeoff</i>
@@ -164,16 +262,15 @@
                             <div class="tab-content">
                                 <div id="salidas" class="tab-pane fade active in">
                                     <div class="table_responsive overflow:scroll; overflow-x:visible; overflow-y:visible;" style="max-height:40rem;">
-                                        <table class="table table-hover dashboard-task-infos">
+                                        <table class="table table-hover dashboard-task-infos" id="tablaSalidas">
                                             <thead>
                                                 <tr>
-                                                    <th>Numero Vuelo</th>
-                                                    <th>Compañia</th>
-                                                    <th>Aeropuerto Destino</th>
+                                                    <th>Vuelo</th>
+                                                    <th>Origen</th>
                                                     <th>Estado</th>
-                                                    <th>Salida de Origen</th>
-                                                    <th>Llegada a Destino</th>
-                                                    <th>Terminal de salida</th>
+                                                    <th>Salida</th>
+                                                    <th>Llegada</th>
+                                                    <th>Terminal</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="datosSalidas">
@@ -186,16 +283,15 @@
                             
                                 <div id="llegadas" class="tab-pane fade">
                                     <div class="table_responsive overflow:scroll; overflow-x:visible; overflow-y:visible;" style="max-height:40rem;">
-                                        <table class="table table-hover dashboard-task-infos">
+                                        <table class="table table-hover dashboard-task-infos" id="tablaLlegadas">
                                             <thead>
                                                 <tr>
-                                                    <th>Numero Vuelo</th>
-                                                    <th>Compañia</th>
-                                                    <th>Aeropuerto Origen</th>
+                                                    <th>Vuelo</th>
+                                                    <th>Origen</th>
                                                     <th>Estado</th>
-                                                    <th>Salida de Origen</th>
-                                                    <th>Llegada a Destino</th>
-                                                    <th>Terminal de llegada</th>
+                                                    <th>Salida</th>
+                                                    <th>Llegada</th>
+                                                    <th>Terminal</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="datosLlegadas">
@@ -220,103 +316,12 @@
                 </div>
                 <!-- #END# TWITTER -->
             </div>
-
-            <div class="row clearfix">
-                <!-- Task Info -->
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="card">
-                        <div class="header">
-                            <h2>Metro de Madrid</h2>
-                            <ul class="header-dropdown">
-                                <li>
-                                    <a role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">open_with</i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-hover dashboard-task-infos">
-                                    <thead>
-                                        <tr>
-                                            <th>Linea</th>
-                                            <th>Estado Circulación</th>
-                                            <th>Linea</th>
-                                            <th>Estado Circulación</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id = "datosTabla"> <!-- Llamada al JS con la informacion del metro-->
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- #END# Task Info -->
-                <!-- START API MAPS -->
-            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                <div class="card">
-                    <div class="header">
-                        <h2 id="tituloMap">
-                           Mapa <small>Mapa actualizado de Madrid</small>
-                        </h2>
-                        <ul class="nav nav-tabs tab-nav-right" role="tablist">
-                            <li role="presentation" class="active" data-toggle="tooltip" data-placement="bottom" title="Trafico">
-                                <a onClick="trafico()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="true">
-                                    <i class="material-icons">traffic</i>
-                                </a>
-                            </li>
-                            <li role="presentation" class="" data-toggle="tooltip" data-placement="bottom" title="BiciMad">
-                                <a onClick="biciMad()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="false">
-                                    <i class="material-icons">directions_bike</i>
-                                </a>
-                            </li>
-                            <li role="presentation" class="" data-toggle="tooltip" data-placement="bottom" title="Metro y Cercanias">
-                                <a onClick="metro()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="false">
-                                    <i class="material-icons">subway</i>
-                                </a>
-                            </li>
-                            <li class="dropdown" data-toggle="tab">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="">directions_bus</i>
-                                </a>
-                                <ul class="dropdown-menu" style="margin-left: -80px;">
-                                    <input type="text" placeholder="Buscar Linea..." id="miInput" onkeyup="filterFunction()" />
-                                    <ul style="max-height: 300px; overflow:scroll; -webkit-overflow-scrolling: touch; overflow-x: hidden; padding-left: 0px; width: 20em;" id="dropdownEMTLineas">
-
-                                    </ul>
-                                </ul>
-                            </li>
-                            <li role="presentation"  data-toggle="tooltip" data-placement="bottom" title="Limpiar Mapa">
-                                <a onClick="clearAll()" title="" href="#settings_only_icon_title" data-toggle="tab" aria-expanded="false">
-                                    <i class="material-icons">clear</i>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="header-dropdown">
-                            <li>
-                                <a role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">open_with</i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="body">
-                        <div id="map"></div><!-- Script de Google Maps que define parametros para dejar un mapa liso-->
-                    </div>
-                </div>
-            </div>
-            <!-- END API MAPS-->
-            </div>
         </div>
     </section>
     
     <!-- Jquery Core Js -->
     <script src="plugins/jquery/jquery.min.js"></script>
-    
+    <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
     
     <!-- Invocacion Script Metro -->
     <script src="js/metro.js"></script>

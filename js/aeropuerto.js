@@ -26,8 +26,6 @@ llegada.onload = function () {
     obtenerDatosLl(contenid);
 }
 
-//var despegue = 'images/despegue.png';
-
 function obtenerDatosLl(contentLl){
     
     // Recorremos los contenidos del JSON
@@ -35,8 +33,8 @@ function obtenerDatosLl(contentLl){
         
         var ltr="<tr>";
 
-        var ltd1= '<td><h5>' + contentLl[i].flightNumber+ '</h5></td>';
-        var ltd2= '<td><img src="images/Aeropuertos/LOGOS/' + contentLl[i].carrier + '.png"></img></td>';
+        var ltd1= '<td><h5>' + contentLl[i].flightNumber+ '</h5>';
+        var ltd2= '<img src="images/Aeropuertos/LOGOS/' + contentLl[i].carrier + '.png"></img></td>';
         var ltd3= '<td>' + contentLl[i].airportDeparture + '</td>';
         var ltd4;
         var valLl = contentLl[i].status
@@ -73,7 +71,7 @@ function obtenerDatosLl(contentLl){
         //Definimos el formato de la hora, para que sea mas amigable
         var lconten = "";
         for(var j = 0; j < contentLl[i].publishedDep.length; j++){
-            if(j > 10 && j < 19){
+            if(j > 10 && j < 16){
                 lconten += contentLl[i].publishedDep[j];
             }
         }
@@ -82,7 +80,7 @@ function obtenerDatosLl(contentLl){
         
         lconten = "";
         for(var j = 0; j < contentLl[i].publishedDep.length; j++){
-            if(j > 10 && j < 19){
+            if(j > 10 && j < 16){
                 lconten += contentLl[i].publishedArr[j];
             }
         }
@@ -92,10 +90,10 @@ function obtenerDatosLl(contentLl){
         
         //añadimos a la tabla todo lo que hemos generado en esta fila y pasamos a la siguiente.
         $("#datosLlegadas").append(ltr+ltd1+ltd2+ltd3+ltd4+ltd5+ltd6+ltd7+'</tr>');
-
+        
     }
+    $("#tablaLlegadas").tablesorter();
 }
-    
 function obtenerDatosS(contentS){
     
     // Recorremos los contenidos del JSON
@@ -103,8 +101,8 @@ function obtenerDatosS(contentS){
         
         var tr="<tr>";
 
-        var std1= '<td><h5>' + contentS[i].flightNumber+ '</h5></td>';
-        var std2= '<td><img src="images/Aeropuertos/LOGOS/' + contentS[i].carrier + '.png"></img></td>';
+        var std1= '<td><h5>' + contentS[i].flightNumber+ '</h5>';
+        var std2= '<img src="images/Aeropuertos/LOGOS/' + contentS[i].carrier + '.png"></img></td>';;
         var std3= '<td>' + contentS[i].airportArrival + '</td>';
         var std4;
         var valS = contentS[i].status
@@ -141,7 +139,7 @@ function obtenerDatosS(contentS){
         //Definimos el formato de la hora, para que sea mas amigable
         var conten = "";
         for(var j = 0; j < contentS[i].publishedDep.length; j++){
-            if(j > 10 && j < 19){
+            if(j > 10 && j < 16){
                 conten += contentS[i].publishedDep[j];
             }
         }
@@ -150,7 +148,7 @@ function obtenerDatosS(contentS){
         
         conten = "";
         for(var j = 0; j < contentS[i].publishedDep.length; j++){
-            if(j > 10 && j < 19){
+            if(j > 10 && j < 16){
                 conten += contentS[i].publishedArr[j];
             }
         }
@@ -161,8 +159,9 @@ function obtenerDatosS(contentS){
         //añadimos a la tabla todo lo que hemos generado en esta fila y pasamos a la siguiente.
         
         $("#datosSalidas").append(tr+std1+std2+std3+std4+std5+std6+std7+'</tr>');
-
+        
     }
+    $("#tablaSalidas").tablesorter();
 }
 
 
