@@ -76,7 +76,7 @@ function obtenerDatosLl(contentLl){
             }
         }
         
-        var ltd5= '<td>' + lconten + '</td>';
+        var ltd5= '<td class="hidden-xs">' + lconten + '</td>';
         
         lconten = "";
         for(var j = 0; j < contentLl[i].publishedDep.length; j++){
@@ -153,7 +153,7 @@ function obtenerDatosS(contentS){
             }
         }
         
-        var std6= '<td>' + conten + '</td>';
+        var std6= '<td class="hidden-xs">' + conten + '</td>';
         var std7= '<td>' + contentS[i].terminalDep + '</td>';
         
         //añadimos a la tabla todo lo que hemos generado en esta fila y pasamos a la siguiente.

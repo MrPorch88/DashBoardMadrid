@@ -216,7 +216,7 @@ function setLocaliz(position) {
         animation: google.maps.Animation.DROP,
       }); 
     pins.push(posGeo);
-    map.setZoom(14);
+    map.setZoom(16);
 }
 
 

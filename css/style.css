@@ -3112,7 +3112,7 @@ section.content {
   .card .body {
     font-size: 14px;
     color: #555;
-    padding: 20px; }
+    padding: 5px; }
     .card .body .col-xs-1,
     .card .body .col-sm-1,
     .card .body .col-md-1,
@@ -4402,7 +4402,7 @@ section.content {
       -webkit-transform: scaleX(1);
       transform: scaleX(1); }
   .nav-tabs + .tab-content {
-    padding: 15px 0; }
+    padding: 0; }
 
 .nav-tabs.tab-col-red > li > a:before {
   border-bottom: 2px solid #F44336; }
